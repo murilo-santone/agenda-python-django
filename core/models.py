@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date,time,datetime,timedelta
 
 # Create your models here.
 class Evento(models.Model):
@@ -15,3 +16,5 @@ class Evento(models.Model):
     def __str__(self):
         return self.titulo #mudando o nome do evento para o titulo informado
 
+    def get_data_criacao(self):
+        return self.data_evento.strftime('%d/%m/%Y %H:%M')
